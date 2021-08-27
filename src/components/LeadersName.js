@@ -4,24 +4,25 @@ import { connect } from 'react-redux'
 export class LeadersName extends Component {
   render() {
     const {
-      users,
-      data
+      users
     } = this.props
+    const usersIds = Object.keys(users).sort((a,b)=>((users[b].questions.length+Object.keys(users[b].answers).length)- (users[a].questions.length+Object.keys(users[a].answers).length)))
+
     return (
       <div className='text-center'>
         <h1 className='AuthTitle'>Leaderboard</h1>
-          {data.map((s, index)=> (
-            <div className='leader-card' key={s.id}>
+          {usersIds.map((uid)=> (
+            <div key={uid.id}>
               <div className='leaderboard-box'>
                 <div className='leaderboard-avatar-name'>
-                  <img src={users[s.id].avatarURL} alt='user avatar' />
-                  <span>{index+1} {users[s.id].name}</span>
+                  <img src={users[uid].avatarURL} alt='user avatar' />
+                  <span>{users[uid].name}</span>
                 </div>
 
                 <div className='leaderboard-details'>
-                  <p className="d-inline-block"> Answered Questions <span> {s.score - users[s.id].questions.length} </span> | </p>
-                  <p className="d-inline-block"> Created Questions <span> {users[s.id].questions.length} </span> | </p>
-                  <p className="d-inline-block"> Score <span> {s.score} </span></p>
+                  <p className="d-inline-block"> Answered Questions <span> {Object.keys(users[uid].answers).length} </span> | </p>
+                  <p className="d-inline-block"> Created Questions <span> {users[uid].questions.length} </span> | </p>
+                  <p className="d-inline-block"> Score <span> {Object.keys(users[uid].answers).length + users[uid].questions.length} </span></p>
                 </div>
               </div>
             </div>
@@ -31,21 +32,9 @@ export class LeadersName extends Component {
   }
 }
 
-const mapStateToProps = ({ users }) => {
-  const usersIds = Object.keys(users)
-  let data = []
-
-  usersIds.forEach(user => {
-    const answers = Object.keys(users[user].answers).length
-    const questions = users[user].questions.length
-    const score = answers + questions
-
-    data.push({ id:user, score })
-  })
-
+function mapStateToProps ({ users })  {
   return {
     users,
-    data: data.sort((a,b) => b.score - a.score)
   }
 }
 

@@ -44,8 +44,8 @@ class App extends Component {
 }
 
 
-const mapStateToProps = ({ authedUser }) => ({
-  authedUser,
-})
+function mapStateToProps ({ authedUser}) {
+  return {authedUser}
+}
 
 export default connect(mapStateToProps)(App)

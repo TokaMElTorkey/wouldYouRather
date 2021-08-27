@@ -21,17 +21,22 @@ export class NewQuestion extends Component {
       author: this.props.authedUser
     }
     dispatch(handleAddQuestion(question))
-
     this.props.history.push('/')
+
   }
 
-  handleInputChange = () => {
+  handleInputOneChange = () => {
     this.setState({
       optionOne: this.optionOne.value,
-      optionTwo: this.optionTwo.value,
-      submitDisabled: (this.optionOne.value === '' || this.optionTwo.value === ''),
     })
   }
+
+  handleInputTwoChange = () => {
+    this.setState({
+      optionTwo: this.optionTwo.value,
+    })
+  }
+    
   render() {
     return (
       <div className='text-center add-q'>
@@ -44,7 +49,7 @@ export class NewQuestion extends Component {
               type='text' 
               placeholder='Option One' 
               ref={(input) => this.optionOne = input}
-              onChange={this.handleInputChange}
+              onChange={this.handleInputOneChange}
             />
             <span>  OR  </span>
             <input 
@@ -52,12 +57,12 @@ export class NewQuestion extends Component {
               type='text' 
               placeholder='Option Two' 
               ref={(input) => this.optionTwo = input}
-              onChange={this.handleInputChange}
+              onChange={this.handleInputTwoChange}
             />
             <div>
             <button
               type='submit'
-              disabled={this.state.submitDisabled}
+              disabled={(this.state.optionOne.value === '' || this.state.optionTwo.value === '')}
             >Submit
             </button>
             </div>
@@ -68,6 +73,9 @@ export class NewQuestion extends Component {
   }
 }
 
-const mapStateToProps = ({ authedUser }) => ({ authedUser })
+function mapStateToProps ({ authedUser }){
+  return{ authedUser }
+
+}
 
 export default withRouter(connect(mapStateToProps)(NewQuestion))

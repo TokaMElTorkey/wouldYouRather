@@ -33,7 +33,7 @@ export class QPage extends Component {
 }
 
 
-const mapStateToProps = ({ questions, users, authedUser }, props) => {
+function mapStateToProps ({ questions, users, authedUser }, props) {
   const { id } = props.match.params
   const question = questions[id]
   const isAnswered = question ? Object.keys(users[authedUser].answers).includes(question.id) : null

@@ -7,7 +7,7 @@ class Nav extends Component {
     this.props.dispatch(setAuthedUser(null))
   }
   render () {
-    const { authedUser, user } = this.props
+    const { authedUser, users } = this.props
     return (
       <nav className='navbar'>
         <ul className='nav-items'>
@@ -34,8 +34,8 @@ class Nav extends Component {
 
         {authedUser !== null && (
           <div className='authCard'>
-            <img alt='welcomeavatar' src={ user.avatarURL } />
-            <p className='d-inline-block'>Hello, You are now logged in with { user.name }</p>
+            <img alt='welcomeavatar' src={ users[authedUser].avatarURL } />
+            <p className='d-inline-block'>Hello, You are now logged in with { users[authedUser].name }</p>
             <button className='' onClick={this.handleLogout}>Sign in with another account </button>
           </div>
         )}
@@ -44,15 +44,9 @@ class Nav extends Component {
   }
 }
 
-const mapStateToProps = ({ authedUser, users }) => {
-  if (authedUser !== null) {
-    return {
-      authedUser,
-      user: users[authedUser]
-    }
-  }
+function mapStateToProps ({ authedUser, users }) {
 
-  return { authedUser }
+  return { authedUser , users}
 }
 
 export default connect(mapStateToProps)(Nav)

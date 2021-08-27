@@ -34,6 +34,10 @@ body {
 .authForm{
   width: 70%;
 }
+.authForm .select-menu {
+  width: 100%;
+  height: 40px;
+}
 .form-container .authForm button , .authCard button , .question-box .view-vote , .q-card button ,
 .add-q button{
   display: block;
@@ -95,12 +99,20 @@ body {
 .tabs-div .tabs-titles{
   text-align: center;
 }
-.tabs-div .tabs-titles li {
-  color: #1c6355; 
+.as-tab-btn {
+  width: 380px;
+  margin: 1rem;
+  height: 40px;
+  background: black;
+  box-shadow: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
   cursor: pointer;
-}
-.tabs-div .tabs-titles li.react-tabs__tab--selected{
-  color: #0aa294;
+  text-align: center;
+  text-decoration: none;
 }
 .question-box , .leader-card , .q-card {
   border:1px solid lightgray;
@@ -124,4 +136,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
