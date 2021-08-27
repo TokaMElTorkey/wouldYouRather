@@ -6,8 +6,122 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+/* Auth Form */
+.text-center{
+  text-align: center;
+}
+.AuthTitle{
+  text-align: center;
+  font-size: 10rem;
+  color: #0aa294;
+  margin-bottom: 1rem;
+}
+.helerText{
+  text-align: center;
+  color:gray;
+}
+.d-inline-block{
+  display: inline-block;
+}
+.img-div{
+  width:25%;
+}
+.img-div img{
+  display: block;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+.authForm{
+  width: 70%;
+}
+.form-container .authForm button , .authCard button , .question-box .view-vote , .q-card button ,
+.add-q button{
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+  height: 40px;
+  background: #57a394;
+  box-shadow: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
 
+
+/* Navbar */
+.navbar .nav-items li , .tabs-div .tabs-titles li{
+  display: inline-block;
+  margin: 0 1rem;
+  font-size: 1.3rem;
+}
+
+.navbar .nav-items li a {
+  text-decoration: none;
+  color: #1c6355;
+}
+
+.navbar .warning-msg {
+  background-color: red;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.authCard{
+  border: 1px solid gray;
+  text-align: center;
+  padding:1rem;
+}
+
+.authCard img , .question-box .user-name-avatar img , .leaderboard-avatar-name img , .question-by img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.authCard p {
+  vertical-align: bottom;
+  padding: 0 1rem;
+}
+
+
+/* Dashboard and Question*/ 
+.tabs-div .tabs-titles{
+  text-align: center;
+}
+.tabs-div .tabs-titles li {
+  color: #1c6355; 
+  cursor: pointer;
+}
+.tabs-div .tabs-titles li.react-tabs__tab--selected{
+  color: #0aa294;
+}
+.question-box , .leader-card , .q-card {
+  border:1px solid lightgray;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.question-box .question .question-options , .question-box .question-title {
+  text-align: center;
+}
+.question-box .question .question-options span{
+  font-weight: bold;
+}
+
+/* Add Question  */
+.add-q input {
+  width: 250px;
+  height: 40px;
+  border-radius: 5px;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
